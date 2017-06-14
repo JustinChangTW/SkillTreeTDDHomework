@@ -24,7 +24,7 @@ namespace SkillTreeHomeWork
         {
             this._product = product;
         }
-        public List<int> Calc(string Field, int Number,List<Product> data)
+        public List<int> Calculate(string Field, int Number,List<Product> data)
         {
             var product = _product;
             //var data = product.GetProduct();

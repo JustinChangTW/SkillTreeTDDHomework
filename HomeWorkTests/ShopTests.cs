@@ -25,7 +25,7 @@ namespace SkillTreeHomeWork.Tests
             //Arrange  //環境設定
             
             ISummary<Product> summary = Substitute.For<ISummary<Product>>();
-            List<Product> product = new List<Product>() {
+            List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
                 new Product { Id=3,Cost=3,Revenue=13,SellPrice=23},
@@ -41,12 +41,12 @@ namespace SkillTreeHomeWork.Tests
 
             var expected = new List<int>() { 6, 15, 24, 21 };
 
-            summary.CalculateGroupResult("Cost", 3, product).Returns(expected);
+            summary.CalculateGroupResult("Cost", 3, products).Returns(expected);
 
             var target = new Shop(summary);
 
             //Act  //測試   actual
-            var actual = target.Calc("Cost", 3,product);
+            var actual = target.Calculate("Cost", 3,products);
 
             //Assert  //驗證
             CollectionAssert.AreEquivalent(expected, actual);
@@ -80,7 +80,7 @@ namespace SkillTreeHomeWork.Tests
             var target = new Shop(summary);
 
             //Act  //測試   actual
-            var actual = target.Calc("Revenue", 4, product);
+            var actual = target.Calculate("Revenue", 4, product);
 
             //Assert  //驗證
             CollectionAssert.AreEquivalent(expected, actual);
@@ -93,7 +93,7 @@ namespace SkillTreeHomeWork.Tests
             //Arrange  //環境設定
 
             ISummary<Product> summary = Substitute.For<ISummary<Product>>();
-            List<Product> product = new List<Product>() {
+            List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
                 new Product { Id=3,Cost=3,Revenue=13,SellPrice=23},
@@ -109,13 +109,13 @@ namespace SkillTreeHomeWork.Tests
 
             var expected = new List<int>() { 50, 66, 60 };
 
-            summary.CalculateGroupResult("Revenue", 0, product).Returns(expected);
+            summary.CalculateGroupResult("Revenue", 0, products).Returns(expected);
 
             var target = new Shop(summary);
 
             //Act  //測試   actual
             //var actual = target.Calc("Revenue", 0, product);
-            Action act = () => target.Calc("Revenue", 0, product);
+            Action act = () => target.Calculate("Revenue", 0, products);
             
             //Assert  //驗證
             act.ShouldThrow<ArgumentException>();
@@ -128,7 +128,7 @@ namespace SkillTreeHomeWork.Tests
             //Arrange  //環境設定
 
             ISummary<Product> summary = Substitute.For<ISummary<Product>>();
-            List<Product> product = new List<Product>() {
+            List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
                 new Product { Id=3,Cost=3,Revenue=13,SellPrice=23},
@@ -144,13 +144,13 @@ namespace SkillTreeHomeWork.Tests
 
             var expected = new List<int>() { 50, 66, 60 };
 
-            summary.CalculateGroupResult("Revenue", 12, product).Returns(expected);
+            summary.CalculateGroupResult("Revenue", 12, products).Returns(expected);
 
             var target = new Shop(summary);
 
             //Act  //測試   actual
             //var actual = target.Calc("Revenue", 0, product);
-            Action act = () => target.Calc("Revenue", 12, product);
+            Action act = () => target.Calculate("Revenue", 12, products);
 
             //Assert  //驗證
             act.ShouldThrow<ArgumentException>();
@@ -163,7 +163,7 @@ namespace SkillTreeHomeWork.Tests
             //Arrange  //環境設定
 
             ISummary<Product> summary = Substitute.For<ISummary<Product>>();
-            List<Product> product = new List<Product>() {
+            List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
                 new Product { Id=3,Cost=3,Revenue=13,SellPrice=23},
@@ -179,13 +179,13 @@ namespace SkillTreeHomeWork.Tests
 
             var expected = new List<int>() { 50, 66, 60 };
 
-            summary.CalculateGroupResult("AAAAA", 0, product).Returns(expected);
+            summary.CalculateGroupResult("AAAAA", 0, products).Returns(expected);
 
             var target = new Shop(summary);
 
             //Act  //測試   actual
             //var actual = target.Calc("Revenue", 0, product);
-            Action act = () => target.Calc("AAAAA", 0, product);
+            Action act = () => target.Calculate("AAAAA", 0, products);
 
             //Assert  //驗證
             act.ShouldThrow<ArgumentException>();
