@@ -48,8 +48,8 @@ namespace SkillTreeHomeWork.Tests
             //Act  //測試   actual
             var actual = target.Calculate("Cost", 3,products);
 
-            //Assert  //驗證
-            CollectionAssert.AreEquivalent(expected, actual);
+            //Assert  //驗證 AreEqual
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         //4筆一組，取Revenue總和	50,66,60
@@ -82,8 +82,8 @@ namespace SkillTreeHomeWork.Tests
             //Act  //測試   actual
             var actual = target.Calculate("Revenue", 4, product);
 
-            //Assert  //驗證
-            CollectionAssert.AreEquivalent(expected, actual);
+            //Assert  //驗證AreEqual()
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         //ArgumentExceptino
