@@ -18,16 +18,16 @@ namespace SkillTreeHomeWork
 
     public class Shop
     {
-        private Summary<Product> _product;
+        private Summary<Product> _summary;
 
-        public Shop(Summary<Product> product)
+        public Shop(Summary<Product> summary)
         {
-            this._product = product;
+            this._summary = summary;
         }
 
         public List<int> Calculate(string Field, int Number,List<Product> data)
         {
-            var product = _product;
+            var product = _summary;
             //var data = product.GetProduct();
 
             CheckException(Field, Number, data);
