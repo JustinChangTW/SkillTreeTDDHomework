@@ -24,7 +24,7 @@ namespace SkillTreeHomeWork.Tests
         {
             //Arrange  //環境設定
             
-            ISummary<Product> summary = Substitute.For<ISummary<Product>>();
+            Summary<Product> summary = Substitute.For<Summary<Product>>();
             List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
@@ -58,7 +58,7 @@ namespace SkillTreeHomeWork.Tests
         {
             //Arrange  //環境設定
 
-            ISummary<Product> summary = Substitute.For<ISummary<Product>>();
+            Summary<Product> summary = Substitute.For<Summary<Product>>();
             List<Product> product = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
@@ -92,7 +92,7 @@ namespace SkillTreeHomeWork.Tests
         {
             //Arrange  //環境設定
 
-            ISummary<Product> summary = Substitute.For<ISummary<Product>>();
+            Summary<Product> summary = Substitute.For<Summary<Product>>();
             List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
@@ -127,7 +127,7 @@ namespace SkillTreeHomeWork.Tests
         {
             //Arrange  //環境設定
 
-            ISummary<Product> summary = Substitute.For<ISummary<Product>>();
+            Summary<Product> summary = Substitute.For<Summary<Product>>();
             List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
@@ -162,7 +162,7 @@ namespace SkillTreeHomeWork.Tests
         {
             //Arrange  //環境設定
 
-            ISummary<Product> summary = Substitute.For<ISummary<Product>>();
+            Summary<Product> summary = Substitute.For<Summary<Product>>();
             List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},

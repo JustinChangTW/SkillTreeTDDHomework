@@ -18,12 +18,13 @@ namespace SkillTreeHomeWork
 
     public class Shop
     {
-        private ISummary<Product> _product;
+        private Summary<Product> _product;
 
-        public Shop(ISummary<Product> product)
+        public Shop(Summary<Product> product)
         {
             this._product = product;
         }
+
         public List<int> Calculate(string Field, int Number,List<Product> data)
         {
             var product = _product;
@@ -56,14 +57,14 @@ namespace SkillTreeHomeWork
         }
     }
 
-    public class Summary:ISummary<Product>
+    public class Summary<T>
     {
-        public List<int> CalculateGroupResult(string Field, int Number, List<Product> product)
+        public List<int> CalculateGroupResult(string Field, int Number, List<T> product)
         {
             throw new NotImplementedException();
         }
 
-        public List<Product> GetProduct()
+        public List<T> GetProduct()
         {
             throw new NotImplementedException();
         }
