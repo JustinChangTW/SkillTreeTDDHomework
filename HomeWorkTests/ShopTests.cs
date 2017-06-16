@@ -23,8 +23,7 @@ namespace SkillTreeHomeWork.Tests
         public void Shop_CalculateGroupResultTest_cost_3_result_6_15_24_21()
         {
             //Arrange  //環境設定
-            
-            Summary<Product> summary = Substitute.For<Summary<Product>>();
+
             List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
@@ -41,12 +40,12 @@ namespace SkillTreeHomeWork.Tests
 
             var expected = new List<int>() { 6, 15, 24, 21 };
 
-            summary.CalculateGroupResult("Cost", 3, products).Returns(expected);
-
-            var target = new Shop(summary);
+            var target = new Shop();
 
             //Act  //測試   actual
-            var actual = target.Calculate("Cost", 3,products);
+            var actual = target.Calculate(3,products,(a,b)=> {
+                return new List<int>() { 6, 15, 24, 21 };
+            });
 
             //Assert  //驗證 AreEqual
             CollectionAssert.AreEqual(expected, actual);
@@ -58,8 +57,7 @@ namespace SkillTreeHomeWork.Tests
         {
             //Arrange  //環境設定
 
-            Summary<Product> summary = Substitute.For<Summary<Product>>();
-            List<Product> product = new List<Product>() {
+            List<Product> products = new List<Product>() {
                 new Product { Id=1,Cost=1,Revenue=11,SellPrice=21},
                 new Product { Id=2,Cost=2,Revenue=12,SellPrice=22},
                 new Product { Id=3,Cost=3,Revenue=13,SellPrice=23},
@@ -75,12 +73,12 @@ namespace SkillTreeHomeWork.Tests
 
             var expected = new List<int>() { 50, 66, 60 };
 
-            summary.CalculateGroupResult("Revenue", 4, product).Returns(expected);
-
-            var target = new Shop(summary);
+            var target = new Shop();
 
             //Act  //測試   actual
-            var actual = target.Calculate("Revenue", 4, product);
+            var actual = target.Calculate(3, products, (a, b) => {
+                return new List<int>() { 50, 66, 60 };
+            });
 
             //Assert  //驗證AreEqual()
             CollectionAssert.AreEqual(expected, actual);
@@ -111,7 +109,7 @@ namespace SkillTreeHomeWork.Tests
 
             summary.CalculateGroupResult("Revenue", 0, products).Returns(expected);
 
-            var target = new Shop(summary);
+            var target = new Shop();
 
             //Act  //測試   actual
             //var actual = target.Calc("Revenue", 0, product);

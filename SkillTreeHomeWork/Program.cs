@@ -25,6 +25,8 @@ namespace SkillTreeHomeWork
             this._summary = summary;
         }
 
+        public Shop() { }
+
         public List<int> Calculate(string Field, int Number,List<Product> data)
         {
             var product = _summary;
@@ -33,6 +35,19 @@ namespace SkillTreeHomeWork
             CheckException(Field, Number, data);
 
             var result = product.CalculateGroupResult(Field, Number, data);
+            return result;
+        }
+
+        public List<int> Calculate<T>(int number, List<T> data,Func<int,List<T>,List<int>> rule)
+        {
+            var product = _summary;
+            //var data = product.GetProduct();
+
+            //CheckException(Field, Number, data);
+
+            var result = rule(number,data);
+
+            //var result = product.CalculateGroupResult(Field, Number, data);
             return result;
         }
 
